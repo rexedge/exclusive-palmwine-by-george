@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -31,6 +32,20 @@ export const metadata: Metadata = {
     title: "EXCLUSIVE Palmwine by George",
     description: "Premium palm wine supply for your events and celebrations",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 512,
+        height: 512,
+        alt: "EXCLUSIVE Palmwine by George Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "EXCLUSIVE Palmwine by George",
+    description: "Premium palm wine supply for your events and celebrations",
+    images: ["/twitter-image.jpeg"],
   },
 };
 
@@ -47,6 +62,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-(family-name:--font-lora)">
         <div className="noise-overlay" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
